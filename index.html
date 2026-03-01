@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NanoWorld | Advanced Nanomaterials Research</title>
+    <style>
+        /* --- CSS: THEME & STYLING --- */
+        :root {
+            --primary: #00d2ff;
+            --secondary: #3a7bd5;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --accent: #10b981;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+
+        /* Header & Navigation */
+        header {
+            background: var(--dark);
+            color: white;
+            padding: 1rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
+        .logo span { color: white; font-weight: 300; }
+
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        nav ul li a:hover { color: var(--primary); }
+
+        /* Page Transitions */
+        .page { display: none; padding: 60px 10%; animation: fadeIn 0.6s ease; }
+        .active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Home / Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1532187863486-abf91ad1baf4?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; color: var(--primary); }
+        .hero p { font-size: 1.2rem; max-width: 700px; }
+
+        /* Info Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--primary);
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-10px); }
+        .card h3 { color: var(--secondary); margin-bottom: 15px; }
+
+        /* Interactive Section */
+        .interactive-box {
+            background: var(--dark);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .btn {
+            background: var(--primary);
+            color: var(--dark);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        /* Footer */
+        footer { background: var(--dark); color: #94a3b8; text-align: center; padding: 40px; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">NANO<span>WORLD</span></div>
+        <nav>
+            <ul>
+                <li><a onclick="showPage('home')">HOME</a></li>
+                <li><a onclick="showPage('types')">CLASSIFICATION</a></li>
+                <li><a onclick="showPage('apps')">APPLICATIONS</a></li>
+                <li><a onclick="showPage('lab')">VIRTUAL LAB</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="home" class="page active">
+        <section class="hero">
+            <h1>Nanomaterials Science</h1>
+            <p>Exploring materials at the scale of $10^{-9}$ meters. Where physics, chemistry, and engineering meet to redefine the future.</p>
+            <button class="btn" onclick="showPage('types')">Explore Now</button>
+        </section>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>What are Nanomaterials?</h3>
+                <p>Nanomaterials describe materials in which at least one dimension is between 1 to 100 nanometers ($10^{-9}$ m).</p>
+            </div>
+            <div class="card">
+                <h3>Surface Area Effect</h3>
+                <p>As particle size decreases, the surface-to-volume ratio increases drastically, making them highly reactive.</p>
+            </div>
+            <div class="card">
+                <h3>Quantum Effects</h3>
+                <p>At the nanoscale, quantum mechanical effects dominate the optical, electrical, and magnetic properties.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="types" class="page">
+        <h2 style="text-align: center; margin-bottom: 40px;">Dimensional Classification</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <span style="color: var(--accent); font-weight: bold;">0-Dimensional (0D)</span>
+                <h3>Nanoparticles & Quantum Dots</h3>
+                <p>All dimensions are at the nanoscale. Used in medical imaging and LED displays.</p>
+            </div>
+            <div class="card">
+                <span style="color: var(--accent); font-weight: bold;">1-Dimensional (1D)</span>
+                <h3>Nanowires & Nanotubes</h3>
+                <p>Two dimensions are at the nanoscale, one is elongated. Carbon Nanotubes (CNTs) are key examples.</p>
+            </div>
+            <div class="card">
+                <span style="color: var(--accent); font-weight: bold;">2-Dimensional (2D)</span>
+                <h3>Nanosheets & Graphene</h3>
+                <p>One dimension is at the nanoscale (atomic thickness). Famous for high electrical conductivity.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="apps" class="page">
+        <h2 style="text-align: center;">Applications in Modern Science</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Medicine (Nanomedicine)</h3>
+                <p>Targeted drug delivery, where nanoparticles carry medicine directly to cancer cells, reducing side effects.</p>
+            </div>
+            <div class="card">
+                <h3>Electronics</h3>
+                <p>Nano-transistors and memory storage devices that are faster, smaller, and consume less power.</p>
+            </div>
+            <div class="card">
+                <h3>Environment</h3>
+                <p>Nanofilters for water purification and nanocatalysts to reduce vehicle emissions.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="lab" class="page">
+        <div class="interactive-box">
+            <h2>Nanoscale Interactive Scale</h2>
+            <p>Click below to see the relative size of materials.</p>
+            <div id="scaleResult" style="font-size: 2rem; margin: 20px; color: var(--primary);">1 Meter</div>
+            <button class="btn" onclick="updateScale('Human Hair', '80,000 nm')">Human Hair</button>
+            <button class="btn" onclick="updateScale('Red Blood Cell', '7,000 nm')">Red Blood Cell</button>
+            <button class="btn" onclick="updateScale('Virus', '100 nm')">Virus</button>
+            <button class="btn" onclick="updateScale('DNA', '2.5 nm')">DNA</button>
+            <button class="btn" onclick="updateScale('Carbon Atom', '0.1 nm')">Carbon Atom</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 NanoWorld Research Portal | Scientific Education Project</p>
+    </footer>
+
+    <script>
+        /* --- JS: NAVIGATION & INTERACTIVE LOGIC --- */
+
+        // 1. Page Switching
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            // Show target page
+            document.getElementById(pageId).classList.add('active');
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // 2. Interactive Lab Scale
+        function updateScale(name, size) {
+            const display = document.getElementById('scaleResult');
+            display.style.opacity = '0';
+            setTimeout(() => {
+                display.innerText = `${name}: ${size}`;
+                display.style.opacity = '1';
+                display.style.transition = '0.5s';
+            }, 200);
+        }
+    </script>
+</body>
+</html>
